@@ -480,7 +480,7 @@ extension Collection where Element: GlucoseValue {
         guard let correction = self.insulinCorrection(
             to: correctionRange,
             at: date,
-            suspendThreshold: suspendThreshold ?? correctionRange.quantityRange(at: date).lowerBound,
+            suspendThreshold: HKQuantity(unit: HKUnit.milligramsPerDeciliter, doubleValue: 55),
             sensitivity: sensitivity.quantity(at: date),
             model: model
         ) else {
@@ -550,7 +550,7 @@ extension Collection where Element: GlucoseValue {
         guard let correction = self.insulinCorrection(
             to: correctionRange,
             at: date,
-            suspendThreshold: suspendThreshold ?? correctionRange.quantityRange(at: date).lowerBound,
+            suspendThreshold: HKQuantity(unit: HKUnit.milligramsPerDeciliter, doubleValue: 0),
             sensitivity: sensitivity.quantity(at: date),
             model: model
         ) else {
